@@ -40,12 +40,12 @@ func RemittanceWorkflow(ctx workflow.Context, req RemittanceRequest) (string, er
         return "failed: compliance", err
     }
 
-    // 4. Payout
+  // 4. Payout
     err = workflow.ExecuteActivity(ctx, a.ExecutePayout, req).Get(ctx, nil)
     if err != nil {
         workflow.ExecuteActivity(ctx, a.Refund, req.AmountJPY).Get(ctx, nil)
         return "failed: payout", err
-   )
+    }
 
     return "success", nil
 }
