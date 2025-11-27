@@ -6,7 +6,7 @@ import (
     "net/http"
     "remitflow-temporal-demo/workflows"
     "github.com/google/uuid"
-    "github.com/gorilla/chi/v5"
+    "github.com/go-chi/chi/v5"
     "go.temporal.io/sdk/client"
 )
 
